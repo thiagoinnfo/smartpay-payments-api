@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PaymentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,12 +15,15 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::controller(AuthController::class)->group(function () {
+    Route::post('login', 'login')->name('login');
+    Route::post('logout', 'logout')->middleware(['auth:api']);
+    Route::post('refresh', 'refresh')->middleware(['auth:api']);
 });
 
-Route::controller(AuthController::class)->group(function () {
-    Route::post('login', 'login');
-    Route::post('logout', 'logout')->middleware(['auth']);
-    Route::post('refresh', 'refresh')->middleware(['auth']);
+Route::middleware(['auth:api'])->group(function () {
+    Route::post('payments', [PaymentsController::class, 'store']);
+    Route::get('payments', [PaymentsController::class, 'index']);
+    Route::get('payments/:id', [PaymentsController::class, 'show']);
 });
+

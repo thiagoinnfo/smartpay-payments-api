@@ -68,7 +68,7 @@ return [
         'merchants' => [
             'driver' => 'eloquent',
             'model' => App\Models\Merchant::class,
-        ]
+        ],
     ],
 
     /*
