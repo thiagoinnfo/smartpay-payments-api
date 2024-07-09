@@ -13,6 +13,7 @@ class Payment extends Model
      * @var string[]
      */
     protected $fillable = [
+        'id',
         'name_client',
         'cpf',
         'description',
