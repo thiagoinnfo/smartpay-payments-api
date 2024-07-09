@@ -38,7 +38,12 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'merchants',
+        ],
+        'api' => [
+            'driver' => 'jwt',
+            'provider' => 'merchants',
+            'hash' => false,
         ],
     ],
 
@@ -60,15 +65,10 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'merchants' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
-        ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+            'model' => App\Models\Merchant::class,
+        ]
     ],
 
     /*
