@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exceptions\UnauthorizedProviderException;
 use App\Http\Requests\StorePaymentRequest;
+use App\Http\Responses\PaymentResponse;
 use App\Services\PaymentServiceInterface;
 use App\Services\ProviderPaymentServiceInterface;
 use Illuminate\Http\JsonResponse;
@@ -54,13 +55,12 @@ class PaymentsController extends Controller
     {
         try {
             $payments = $this->paymentServiceInterface->getAll();
-
             return response()->json([
                'status' => 'success',
                'data' => $payments
             ], Response::HTTP_OK);
 
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             Log::error('Payment Index Error', [
                'message' => $e->getMessage(), 'trace' => $e->getTraceAsString()
             ]);
@@ -72,9 +72,20 @@ class PaymentsController extends Controller
 
     public function show(string $id): JsonResponse
     {
-        return response()->json([
-            'status' => 'success',
-            'todos' => [],
-        ]);
+        try {
+            $payment = $this->paymentServiceInterface->getById($id);
+            return response()->json([
+                'status' => 'success',
+                'data' => PaymentResponse::fromPaymentDto($payment),
+            ], Response::HTTP_OK);
+
+        } catch (\Exception $e) {
+            Log::error('Payment Show Error', [
+                'message' => $e->getMessage(), 'trace' => $e->getTraceAsString()
+            ]);
+            return response()->json([
+                'status' => 'error',
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
     }
 }

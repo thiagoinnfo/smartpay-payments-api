@@ -7,21 +7,31 @@ class PaymentDto
     public ?string $id;
     public string $name_client;
     public string $cpf;
-    public string $description;
+    public ?string $description;
     public float $amount;
     public string $status;
     public string $payment_method;
     public ?\DateTimeInterface $paid_at;
+
     public function __construct(
-        ?int $id,
+        ?string $id,
         string $name_client,
         string $cpf,
-        string $description,
+        ?string $description,
         float $amount,
         string $status,
         string $payment_method,
-       ?\DateTimeInterface $paid_at = null
-    ) {}
+        ?\DateTimeInterface $paid_at = null
+    ) {
+        $this->id = $id;
+        $this->name_client = $name_client;
+        $this->cpf = $cpf;
+        $this->description = $description;
+        $this->amount = $amount;
+        $this->status = $status;
+        $this->payment_method = $payment_method;
+        $this->paid_at = $paid_at;
+    }
 
     public static function fromArray(array $payment): self
     {
@@ -33,7 +43,7 @@ class PaymentDto
             $payment['amount'],
             $payment['status'],
             $payment['payment_method'],
-            $payment['paid_at'] ?? null
+            isset($payment['paid_at']) ? new \DateTime($payment['paid_at']) : null
         );
     }
 }

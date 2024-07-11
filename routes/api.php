@@ -24,6 +24,6 @@ Route::controller(AuthController::class)->group(function () {
 Route::middleware(['auth:api'])->group(function () {
     Route::post('payments', [PaymentsController::class, 'store']);
     Route::get('payments', [PaymentsController::class, 'index']);
-    Route::get('payments/:id', [PaymentsController::class, 'show']);
+    Route::get('payments/{id}', [PaymentsController::class, 'show']);
 });
 
