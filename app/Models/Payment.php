@@ -10,6 +10,26 @@ class Payment extends Model
     use HasFactory;
 
     /**
+     * KeyType
+     * @var string
+     */
+    protected $keyType = 'string';
+    /**
+     * Incrementing
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
+     * Casts
+     * @var string[]
+     */
+    protected $casts = [
+        'id' => 'string',
+        'paid_at' => 'datetime',
+    ];
+
+    /**
      * @var string[]
      */
     protected $fillable = [
