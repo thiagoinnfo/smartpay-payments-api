@@ -49,7 +49,7 @@ Run the seeds
 Collection postman
 
 ```
-https://api.postman.com/collections/3918561-68e50eb7-434f-44c1-b312-9c51e15543c1?access_key=PMAT-01J2JAKPKK0NYJA65NHJ5ZF07Z
+https://encurtador.com.br/5hf9p
 ```
 
 ## Tests
