@@ -74,7 +74,7 @@ class PaymentsController extends Controller
         return response()->json([
             'status' => 'success',
             'data' => PaymentResponse::fromPaymentDto($updatedPayment),
-        ], Response::HTTP_OK);
+        ], Response::HTTP_CREATED);
     }
 
     public function index(): JsonResponse

@@ -20,6 +20,11 @@ Rename the file .env.example to .env
 ```bash
 cp .env.example .env
 ```
+Rename the file .env.testing.example to .env.testing
+
+```bash
+cp .env.testing.example .env.testing
+```
 
 Start the containers
 

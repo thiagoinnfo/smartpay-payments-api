@@ -4,15 +4,18 @@ namespace App\Dtos;
 
 class MerchantDto
 {
-    private string $id;
-    private string $name;
-    private float $balance;
+    public string $id;
+    public string $name;
+    public float $balance;
 
     public function __construct(
         string $id,
         string $name,
         float $balance
     ){
+        $this->id = $id;
+        $this->name = $name;
+        $this->balance = $balance;
     }
 
     public static function fromArray(array $merchant): self
