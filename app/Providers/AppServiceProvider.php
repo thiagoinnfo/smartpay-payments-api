@@ -6,8 +6,12 @@ use App\Repositories\PaymentRepository;
 use App\Repositories\PaymentRepositoryInterface;
 use App\Services\PaymentService;
 use App\Services\PaymentServiceInterface;
-use App\Services\ProviderPaymentService;
-use App\Services\ProviderPaymentServiceInterface;
+use App\Services\ProviderService;
+use App\Services\ProviderServiceInterface;
+use App\Services\MerchantServiceInterface;
+use App\Services\MerchantService;
+use App\Repositories\MerchantRepositoryInterface;
+use App\Repositories\MerchantRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -26,8 +30,20 @@ class AppServiceProvider extends ServiceProvider
             PaymentRepository::class
         );
         $this->app->bind(
-            ProviderPaymentServiceInterface::class,
-            ProviderPaymentService::class
+            ProviderServiceInterface::class,
+            ProviderService::class
+        );
+        $this->app->bind(
+            ProviderServiceInterface::class,
+            ProviderService::class
+        );
+        $this->app->bind(
+            MerchantServiceInterface::class,
+            MerchantService::class
+        );
+        $this->app->bind(
+            MerchantRepositoryInterface::class,
+            MerchantRepository::class
         );
     }
 

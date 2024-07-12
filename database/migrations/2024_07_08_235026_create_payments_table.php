@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name_client');
-            $table->string('cpf', 11)->unique();
+            $table->string('cpf', 11);
             $table->text('description')->nullable();
             $table->decimal('amount', 10, 2);
             $table->enum('status', ['pending', 'paid', 'expired', 'failed']);

@@ -25,4 +25,9 @@ class PaymentService implements PaymentServiceInterface
     {
         return $this->paymentRepositoryInterface->getById($id);
     }
+
+    public function updateStatus(string $paymentId, string $status): ?PaymentDto
+    {
+        return $this->paymentRepositoryInterface->updateStatus($paymentId, $status);
+    }
 }

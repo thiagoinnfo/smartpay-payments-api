@@ -29,4 +29,17 @@ class PaymentRepository implements PaymentRepositoryInterface
         }
         return PaymentDto::fromArray($payment->toArray());
     }
+
+    public function updateStatus(string $paymentId, string $status): ?PaymentDto
+    {
+        $payment = Payment::find($paymentId);
+        if (!$payment) {
+            return null;
+        }
+
+        $payment->status = $status;
+        $payment->save();
+
+        return PaymentDto::fromArray($payment->toArray());
+    }
 }

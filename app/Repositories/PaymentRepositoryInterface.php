@@ -11,4 +11,5 @@ interface PaymentRepositoryInterface
     public function getAll(): ?array;
 
     public function getById(string $id): ?PaymentDto;
+    public function updateStatus(string $paymentId, string $status): ?PaymentDto;
 }

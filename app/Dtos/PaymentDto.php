@@ -4,7 +4,7 @@ namespace App\Dtos;
 
 class PaymentDto
 {
-    public ?string $id;
+    public string $id;
     public string $name_client;
     public string $cpf;
     public ?string $description;
@@ -14,7 +14,7 @@ class PaymentDto
     public ?\DateTimeInterface $paid_at;
 
     public function __construct(
-        ?string $id,
+        string $id,
         string $name_client,
         string $cpf,
         ?string $description,
@@ -36,7 +36,7 @@ class PaymentDto
     public static function fromArray(array $payment): self
     {
         return new self(
-            $payment['id'] ?? null,
+            $payment['id'],
             $payment['name_client'],
             $payment['cpf'],
             $payment['description'] ?? null,

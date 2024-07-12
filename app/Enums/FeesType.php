@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Enums;
-
 enum FeesType: string
 {
     case PIX = 'pix';
@@ -16,5 +15,16 @@ enum FeesType: string
             self::BANK_TRANSFER => 4.0,
         };
     }
+
+    public static function fromSlug(string $slug): self
+    {
+        return match ($slug) {
+            self::PIX->value => self::PIX,
+            self::BANK_SLIP->value => self::BANK_SLIP,
+            self::BANK_TRANSFER->value => self::BANK_TRANSFER,
+            default => throw new \InvalidArgumentException("Invalid slug provided"),
+        };
+    }
 }
+
 
