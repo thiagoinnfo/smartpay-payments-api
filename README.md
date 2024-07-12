@@ -46,22 +46,10 @@ Run the seeds
 
 ## How to use
 
-Command generate swagger file
-
-```
-docker exec -ti app php artisan swg:scan
-```
-
-Swagger
-
-```
-http://localhost:8080/docs/index.html
-```
-
 Collection postman
 
 ```
-https://www.getpostman.com/collections/077e15dcd9989b2de4f0
+https://api.postman.com/collections/3918561-68e50eb7-434f-44c1-b312-9c51e15543c1?access_key=PMAT-01J2JAKPKK0NYJA65NHJ5ZF07Z
 ```
 
 ## Tests

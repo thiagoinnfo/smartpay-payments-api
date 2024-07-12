@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Enums\FeesType;
-use App\Exceptions\ProviderException;
 use App\Http\Requests\StorePaymentRequest;
 use App\Http\Responses\PaymentResponse;
 use App\Services\MerchantServiceInterface;
@@ -59,9 +58,7 @@ class PaymentsController extends Controller
                 $this->merchantServiceInterface->updateBalance(auth()->id(), $amount);
 
                 DB::commit();
-
             } catch (\Exception $e) {
-
                 DB::rollBack();
 
                 $this->paymentServiceInterface->updateStatus($payment->id, 'failed');
