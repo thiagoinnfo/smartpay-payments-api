@@ -80,7 +80,7 @@ curl --location 'http://localhost:8080/api/payments' \
 ```
 GET Payments/{id}
 ```
-curl --location 'http://localhost:8080/api/payments' \
+curl --location 'http://localhost:8080/api/payments/3e0e3c46-5d13-41ac-99d5-fd1240bb835e' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwiaWF0IjoxNzIwNzM1NzQyLCJleHAiOjE3MjA3MzkzNDIsIm5iZiI6MTcyMDczNTc0MiwianRpIjoiWU91VGxoRkhvUFBYSFgyVSIsInN1YiI6IjEiLCJwcnYiOiI5M2JkY2M1OGRkMDFjZTM2ZWM1NmUzMmI1YmI1ODBkODMwMzJmZDE4In0.Z927y0S_a7CAU7NIEUFmzQC2_G2YWEXhal4OEGL5RW8'
 ```
