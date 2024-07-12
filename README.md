@@ -86,6 +86,18 @@ curl --location 'http://localhost:8080/api/payments' \
 ```
 ## Tests
 
+Run the migrations
+
+```bash
+docker exec -ti app php artisan migrate --env=testing
+```
+
+Run the seeds
+
+```bash
+ docker exec -ti app php artisan db:seed --env=testing
+```
+
 Run tests
 
 ```bash
